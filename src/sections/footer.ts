@@ -1,6 +1,7 @@
 import { profile } from '../data/profile';
 import { site } from '../data/site';
 import { icon } from '../lib/icons';
+import { logoMark } from '../lib/logo';
 import { esc } from '../lib/dom';
 
 export function renderFooter(): string {
@@ -20,8 +21,11 @@ export function renderFooter(): string {
     <footer class="footer">
       <div class="container footer__inner">
         <div class="footer__brand">
-          <p class="footer__name">${esc(profile.name)}</p>
-          <p class="footer__tagline">${esc(site.tagline)}</p>
+          <span class="footer__mark" aria-hidden="true">${logoMark}</span>
+          <div>
+            <p class="footer__name">${esc(profile.name)}</p>
+            <p class="footer__tagline">${esc(site.tagline)}</p>
+          </div>
         </div>
 
         <ul class="footer__socials">

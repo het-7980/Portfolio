@@ -12,5 +12,5 @@ export const navLinks = [
 export const site = {
   tagline: 'Building mobile and web applications.',
   /** Also referenced by index.html, public/sitemap.xml and public/robots.txt. */
-  url: 'https://hetchikhaliya.com',
+  url: 'https://hetchikhaliya.in',
 };

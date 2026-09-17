@@ -27,7 +27,8 @@
 
 .hero__name {
   font-size: var(--text-4xl);
-  font-weight: 700;
+  font-weight: 600;
+  font-optical-sizing: auto;
 }
 
 .hero__title {
@@ -35,6 +36,7 @@
   font-family: var(--font-display);
   font-size: var(--text-2xl);
   font-weight: 500;
+  font-style: italic;
   color: var(--text-muted);
 }
 
@@ -453,7 +455,7 @@
 .project-card__monogram {
   font-family: var(--font-display);
   font-size: 3.5rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
   background: linear-gradient(140deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
@@ -804,6 +806,23 @@
   justify-content: space-between;
   gap: var(--space-5);
   padding-bottom: var(--space-6);
+}
+
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.footer__mark {
+  display: inline-flex;
+  height: 44px;
+  color: var(--text);
+}
+
+.footer__mark svg {
+  height: 100%;
+  width: auto;
 }
 
 .footer__name {

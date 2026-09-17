@@ -17,35 +17,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Space+Grotesk:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap"
       rel="stylesheet"
     />
     <style>
       /* Self-contained: this page is served outside the Vite bundle. */
       :root {
         color-scheme: dark;
-        --bg: #0a0c11;
-        --surface: #12161f;
-        --text: #e9ecf3;
-        --muted: #98a2b5;
-        --faint: #8590a3;
-        --border: rgba(255, 255, 255, 0.09);
-        --accent: #6d8cff;
-        --accent-2: #35d6c4;
-        --grid: rgba(255, 255, 255, 0.035);
+        --bg: #0e0e12;
+        --surface: #17171d;
+        --text: #f2efe9;
+        --muted: #a4a19b;
+        --faint: #8a8781;
+        --border: rgba(242, 239, 233, 0.09);
+        --accent: #7c81e6;
+        --accent-2: #b9bcf3;
+        --grid: rgba(242, 239, 233, 0.035);
       }
 
       :root[data-theme='light'] {
         color-scheme: light;
-        --bg: #f6f7fa;
-        --surface: #ffffff;
-        --text: #10131a;
-        --muted: #566074;
-        --faint: #626c7c;
-        --border: rgba(16, 19, 26, 0.1);
-        --accent: #3b5bdb;
-        --accent-2: #0d9488;
-        --grid: rgba(16, 19, 26, 0.04);
+        --bg: #faf7f2;
+        --surface: #fffdf9;
+        --text: #111114;
+        --muted: #57555a;
+        --faint: #66646a;
+        --border: rgba(17, 17, 20, 0.1);
+        --accent: #5257c9;
+        --accent-2: #7e83e3;
+        --grid: rgba(17, 17, 20, 0.045);
       }
 
       * {
@@ -76,11 +76,11 @@
       }
 
       .code {
-        font-family: 'Space Grotesk', system-ui, sans-serif;
+        font-family: 'Bodoni Moda', Georgia, serif;
         font-size: clamp(5rem, 4rem + 8vw, 8rem);
-        font-weight: 700;
+        font-weight: 600;
         line-height: 1;
-        letter-spacing: -0.05em;
+        letter-spacing: 0;
         background: linear-gradient(140deg, var(--accent), var(--accent-2));
         -webkit-background-clip: text;
         background-clip: text;
@@ -97,10 +97,10 @@
 
       h1 {
         margin-top: 0.75rem;
-        font-family: 'Space Grotesk', system-ui, sans-serif;
-        font-size: 1.75rem;
-        font-weight: 700;
-        letter-spacing: -0.02em;
+        font-family: 'Bodoni Moda', Georgia, serif;
+        font-size: 1.85rem;
+        font-weight: 600;
+        letter-spacing: 0;
       }
 
       p {
@@ -138,7 +138,7 @@
 
       .btn--primary {
         background: var(--accent);
-        color: #07090f;
+        color: #0b0b10;
       }
 
       :root[data-theme='light'] .btn--primary {

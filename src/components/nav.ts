@@ -1,17 +1,8 @@
 import { navLinks } from '../data/site';
 import { profile } from '../data/profile';
 import { icon } from '../lib/icons';
+import { logoMark } from '../lib/logo';
 import { esc } from '../lib/dom';
-
-/** Derives the monogram shown as the brand mark, e.g. "Het Chikhaliya" -> "HC". */
-function monogram(name: string): string {
-  return name
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part) => part[0] ?? '')
-    .join('')
-    .toUpperCase();
-}
 
 export function renderNav(): string {
   const links = navLinks
@@ -23,7 +14,7 @@ export function renderNav(): string {
     <header class="nav" data-nav>
       <div class="nav__inner container">
         <a class="nav__brand" href="#home" aria-label="${esc(profile.name)} — back to top">
-          <span class="nav__mark" aria-hidden="true">${esc(monogram(profile.name))}</span>
+          <span class="nav__mark">${logoMark}</span>
           <span class="nav__brand-text">${esc(profile.name)}</span>
         </a>
 

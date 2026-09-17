@@ -2,7 +2,7 @@
 
 **Mobile & Web Developer** · Morbi, Gujarat, India
 
-[Email](mailto:hetchikhaliya07@gmail.com) · [GitHub](https://github.com/het-7980) · [LinkedIn](https://www.linkedin.com/in/het-chikhaliya)
+[Email](mailto:contact@hetchikhaliya.in) · [GitHub](https://github.com/het-7980) · [LinkedIn](https://www.linkedin.com/in/het-chikhaliya)
 
 ---
 
@@ -54,7 +54,7 @@ Building a well-structured resume is slow and unfamiliar for many students and f
 
 I'm open to conversations about projects, collaboration, or anything Flutter-related.
 
-- **Email** — [hetchikhaliya07@gmail.com](mailto:hetchikhaliya07@gmail.com)
+- **Email** — [contact@hetchikhaliya.in](mailto:contact@hetchikhaliya.in)
 - **GitHub** — [github.com/het-7980](https://github.com/het-7980)
 - **LinkedIn** — [linkedin.com/in/het-chikhaliya](https://www.linkedin.com/in/het-chikhaliya)
 
