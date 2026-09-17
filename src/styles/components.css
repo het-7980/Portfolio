@@ -1,4 +1,4 @@
-/* Reusable UI: navigation, buttons, chips, icons, form fields. */
+/* Reusable UI: navigation, buttons, chips, icons. */
 
 /* ---------- Icons ---------- */
 
@@ -6,7 +6,7 @@
 .btn__icon,
 .contact-card__arrow,
 .footer__top-icon,
-.project__tick {
+.project-card__chevron {
   display: inline-flex;
   flex: none;
 }
@@ -15,7 +15,7 @@
 .btn__icon svg,
 .contact-card__arrow svg,
 .footer__top-icon svg,
-.project__tick svg {
+.project-card__chevron svg {
   width: 1.15em;
   height: 1.15em;
 }

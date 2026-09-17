@@ -15,16 +15,14 @@ function initials(name: string): string {
 /** Screenshot when one exists, otherwise a generated cover built from the project name. */
 function cover(project: Project): string {
   if (project.image) {
-    return `<img class="project__image" src="${esc(project.image)}" alt="${esc(
+    return `<img class="project-card__image" src="${esc(project.image)}" alt="${esc(
       project.imageAlt ?? `${project.name} screenshot`,
-    )}" loading="lazy" width="960" height="720" />`;
+    )}" loading="lazy" width="640" height="400" />`;
   }
 
   return `
-    <div class="project__cover" aria-hidden="true">
-      <span class="project__monogram">${esc(initials(project.name))}</span>
-      <span class="project__cover-name">${esc(project.name)}</span>
-      <div class="project__cover-rings"></div>
+    <div class="project-card__cover" aria-hidden="true">
+      <span class="project-card__monogram">${esc(initials(project.name))}</span>
     </div>`;
 }
 
@@ -43,48 +41,55 @@ function links(project: Project): string {
   ]);
 }
 
+function details(project: Project): string {
+  const hasDetails = project.problem || project.features.length > 0 || project.role;
+  if (!hasDetails) return '';
+
+  return `
+    <details class="project-card__details">
+      <summary class="project-card__summary">
+        <span>Details</span>
+        ${icon('chevron', 'project-card__chevron')}
+      </summary>
+      <div class="project-card__details-body">
+        ${join([
+          project.problem &&
+            `<p class="project-card__label">Problem it solves</p>
+             <p class="project-card__text">${esc(project.problem)}</p>`,
+          project.features.length > 0 &&
+            `<p class="project-card__label">Key features</p>
+             <ul class="project-card__features">
+               ${project.features.map((f) => `<li>${esc(f)}</li>`).join('')}
+             </ul>`,
+          project.role &&
+            `<p class="project-card__label">My role</p>
+             <p class="project-card__text">${esc(project.role)}</p>`,
+        ])}
+      </div>
+    </details>`;
+}
+
 function card(project: Project, index: number): string {
   const id = `project-${index}-title`;
 
   return `
-    <article class="project" data-reveal data-reveal-index="${index}" aria-labelledby="${id}">
-      <div class="project__media">${cover(project)}</div>
+    <article class="project-card" data-reveal data-reveal-index="${index}" aria-labelledby="${id}">
+      <div class="project-card__media">
+        ${cover(project)}
+        <span class="project-card__category">${esc(project.category)}</span>
+      </div>
 
-      <div class="project__body">
-        <p class="project__category">${esc(project.category)}</p>
-        <h3 class="project__name" id="${id}">${esc(project.name)}</h3>
-        <p class="project__tagline">${esc(project.tagline)}</p>
+      <div class="project-card__body">
+        <h3 class="project-card__name" id="${id}">${esc(project.name)}</h3>
+        <p class="project-card__desc">${esc(project.tagline)}</p>
 
-        ${join([
-          project.problem &&
-            `<div class="project__block">
-              <h4 class="project__block-title">Problem it solves</h4>
-              <p>${esc(project.problem)}</p>
-            </div>`,
-        ])}
-
-        ${join([
-          project.features.length > 0 &&
-            `<div class="project__block">
-              <h4 class="project__block-title">Key features</h4>
-              <ul class="project__features">
-                ${project.features
-                  .map((feature) => `<li>${icon('check', 'project__tick')}<span>${esc(feature)}</span></li>`)
-                  .join('')}
-              </ul>
-            </div>`,
-        ])}
-
-        ${join([
-          project.role &&
-            `<p class="project__role"><span class="project__role-label">My role</span> ${esc(project.role)}</p>`,
-        ])}
-
-        <ul class="project__tech">
+        <ul class="project-card__tech" aria-label="Technologies">
           ${project.tech.map((tech) => `<li class="chip chip--accent">${esc(tech)}</li>`).join('')}
         </ul>
 
-        <div class="project__actions">${links(project)}</div>
+        ${details(project)}
+
+        <div class="project-card__actions">${links(project)}</div>
       </div>
     </article>`;
 }
@@ -97,11 +102,11 @@ export function renderProjects(): string {
           <p class="eyebrow">Projects</p>
           <h2 class="section__title" id="projects-title">Things I have built</h2>
           <p class="section__lead">
-            Work I have shipped end to end — the problem behind it, what it does and how it was built.
+            Work I have shipped end to end — open a card for the problem, features and my role.
           </p>
         </header>
 
-        <div class="project-list">${projects.map(card).join('')}</div>
+        <div class="project-grid">${projects.map(card).join('')}</div>
       </div>
     </section>
   `;

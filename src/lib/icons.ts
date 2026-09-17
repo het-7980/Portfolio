@@ -27,6 +27,7 @@ export const icons: Record<string, string> = {
   sun: wrap('<circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/>'),
   moon: wrap('<path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z"/>'),
   check: wrap('<path d="m4.5 12.5 5 5 10-11"/>'),
+  chevron: wrap('<path d="m6 9 6 6 6-6"/>'),
   cap: wrap('<path d="m12 4 9.5 4.6L12 13.2 2.5 8.6 12 4Z"/><path d="M6.5 10.8v4.6c0 1.6 2.5 2.9 5.5 2.9s5.5-1.3 5.5-2.9v-4.6M20.4 9.2v5.4"/>'),
   menu: wrap('<path d="M4 7h16M4 12h16M4 17h16"/>'),
   close: wrap('<path d="M6 6l12 12M18 6 6 18"/>'),
