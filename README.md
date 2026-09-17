@@ -16,13 +16,13 @@ What I enjoy most is taking an idea all the way through to something people can 
 
 ## Technologies
 
-| Area | Tools |
-| --- | --- |
-| Mobile Development | Flutter / Dart, Android Development |
-| Web Development | HTML / CSS / JavaScript, Flutter Web |
-| Backend & Database | Firebase Authentication & Firestore, PHP + MySQL |
-| Programming Languages | C, C++, Java, Python |
-| Tools | Git / GitHub |
+| Area                  | Tools                                            |
+| --------------------- | ------------------------------------------------ |
+| Mobile Development    | Flutter / Dart, Android Development              |
+| Web Development       | HTML / CSS / JavaScript, Flutter Web             |
+| Backend & Database    | Firebase Authentication & Firestore, PHP + MySQL |
+| Programming Languages | C, C++, Java, Python                             |
+| Tools                 | Git / GitHub                                     |
 
 ## Projects
 
@@ -48,7 +48,7 @@ Building a well-structured resume is slow and unfamiliar for many students and f
 
 ## Education
 
-**Diploma in Computer Engineering**, Darshan University — *2024 to expected 2027*
+**Diploma in Computer Engineering**, Darshan University — _2024 to expected 2027_
 
 ## Get In Touch
 
@@ -60,4 +60,4 @@ I'm open to conversations about projects, collaboration, or anything Flutter-rel
 
 ---
 
-*This repository contains the source of my personal portfolio website, built with HTML, CSS, TypeScript and Vite.*
+_This repository contains the source of my personal portfolio website, built with HTML, CSS, TypeScript and Vite._

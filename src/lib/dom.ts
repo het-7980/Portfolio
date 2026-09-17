@@ -1,6 +1,9 @@
 /** Small typed DOM helpers shared by every section renderer. */
 
-export function qs<T extends Element = HTMLElement>(selector: string, scope: ParentNode = document): T | null {
+export function qs<T extends Element = HTMLElement>(
+  selector: string,
+  scope: ParentNode = document,
+): T | null {
   return scope.querySelector<T>(selector);
 }
 

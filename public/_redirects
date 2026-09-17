@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects — friendly section URLs for a single-page site.
+/about      /#about      301
+/skills     /#skills     301
+/projects   /#projects   301
+/education  /#education  301
+/contact    /#contact    301

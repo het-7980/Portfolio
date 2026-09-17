@@ -1,6 +1,12 @@
 # Cloudflare Pages response headers
+#
+# The two script hashes belong to the inline scripts in 404.html. If those
+# scripts change, recompute with:
+#   node -e "const c=require('crypto'),h=require('fs').readFileSync('public/404.html','utf8');for(const m of h.matchAll(/<script>([\s\S]*?)<\/script>/g))console.log(\"'sha256-\"+c.createHash('sha256').update(m[1]).digest('base64')+\"'\")"
 
 /*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-1suigPFFqeHFeX8Y4W0XOYGvI52SpZSAkqFpEGBS8lc=' 'sha256-GX7srTRCOuvUxdTP55KY/VZ+rvaUrnjo87rusUVk7YU='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin

@@ -15,10 +15,7 @@ function monogram(name: string): string {
 
 export function renderNav(): string {
   const links = navLinks
-    .map(
-      (link) =>
-        `<li><a class="nav__link" href="${link.href}" data-nav-link>${esc(link.label)}</a></li>`,
-    )
+    .map((link) => `<li><a class="nav__link" href="${link.href}" data-nav-link>${esc(link.label)}</a></li>`)
     .join('');
 
   return `

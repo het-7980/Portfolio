@@ -15,13 +15,16 @@ import { renderFooter } from './sections/footer';
 import { initTheme } from './lib/theme';
 import { initNavigation } from './lib/navigation';
 import { initScrollReveal } from './lib/reveal';
-import { mount } from './lib/dom';
+import { esc, mount } from './lib/dom';
+import { profile } from './data/profile';
 
 function render(): void {
   mount('#nav-root', renderNav());
   mount(
     '#main',
-    [renderHero(), renderAbout(), renderSkills(), renderProjects(), renderEducation(), renderContact()].join(''),
+    [renderHero(), renderAbout(), renderSkills(), renderProjects(), renderEducation(), renderContact()].join(
+      '',
+    ),
   );
   mount('#footer-root', renderFooter());
 }
@@ -38,8 +41,44 @@ function restoreHashTarget(): void {
   target?.scrollIntoView({ behavior: 'auto', block: 'start' });
 }
 
-initTheme();
-render();
-initNavigation();
-initScrollReveal();
-restoreHashTarget();
+/** Collapsed <details> stay hidden on paper unless opened, so expand them for the print run only. */
+function initPrintExpansion(): void {
+  let opened: HTMLDetailsElement[] = [];
+
+  window.addEventListener('beforeprint', () => {
+    opened = Array.from(document.querySelectorAll<HTMLDetailsElement>('details:not([open])'));
+    opened.forEach((el) => (el.open = true));
+  });
+
+  window.addEventListener('afterprint', () => {
+    opened.forEach((el) => (el.open = false));
+    opened = [];
+  });
+}
+
+/** Content is static, so a failure here is a bug — surface contact details rather than a blank page. */
+function renderFallback(error: unknown): void {
+  console.error('Portfolio failed to render', error);
+  const main = document.getElementById('main');
+  if (!main) return;
+  main.innerHTML = `
+    <div class="container" style="padding-block: 6rem; max-width: 640px">
+      <h1>${esc(profile.name)}</h1>
+      <p style="margin-top: 0.5rem; color: var(--text-muted)">${esc(profile.title)}</p>
+      <p style="margin-top: 1.5rem">
+        Something went wrong loading this page. You can still reach me at
+        <a href="mailto:${esc(profile.email)}" style="color: var(--accent)">${esc(profile.email)}</a>.
+      </p>
+    </div>`;
+}
+
+try {
+  initTheme();
+  render();
+  initNavigation();
+  initScrollReveal();
+  initPrintExpansion();
+  restoreHashTarget();
+} catch (error) {
+  renderFallback(error);
+}
