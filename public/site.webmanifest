@@ -1,0 +1,13 @@
+{
+  "name": "Het Chikhaliya — Portfolio",
+  "short_name": "Het Chikhaliya",
+  "description": "Mobile and web developer building Flutter applications and web projects.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0a0c11",
+  "theme_color": "#0a0c11",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

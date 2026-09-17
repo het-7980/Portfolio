@@ -20,7 +20,7 @@ export const skillGroups: SkillGroup[] = [
   {
     name: 'Programming Languages',
     icon: 'code',
-    skills: ['C', 'Python'],
+    skills: ['C', 'C++', 'Java', 'Python'],
   },
   {
     name: 'Tools',

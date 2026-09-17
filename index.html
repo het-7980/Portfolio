@@ -10,18 +10,44 @@
       content="Portfolio of Het Chikhaliya, a mobile and web developer from Morbi, Gujarat, building Flutter applications and web projects with Firebase, PHP and MySQL."
     />
     <meta name="author" content="Het Chikhaliya" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://hetchikhaliya.com/" />
+
     <meta name="theme-color" content="#0a0c11" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#f6f7fa" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
 
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Het Chikhaliya" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://hetchikhaliya.com/" />
     <meta property="og:title" content="Het Chikhaliya — Mobile &amp; Web Developer" />
     <meta
       property="og:description"
-      content="Mobile and web developer building Flutter applications and web projects."
+      content="Mobile and web developer from Gujarat, India, building Flutter applications and web projects."
     />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image" content="https://hetchikhaliya.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Het Chikhaliya — Mobile & Web Developer" />
 
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Het Chikhaliya — Mobile &amp; Web Developer" />
+    <meta
+      name="twitter:description"
+      content="Mobile and web developer from Gujarat, India, building Flutter applications and web projects."
+    />
+    <meta name="twitter:image" content="https://hetchikhaliya.com/og.png" />
+
+    <!-- Icons -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,14 +58,39 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Het Chikhaliya",
-        "jobTitle": "Mobile & Web Developer",
-        "email": "mailto:hetchikhaliya07@gmail.com",
-        "address": { "@type": "PostalAddress", "addressLocality": "Morbi", "addressRegion": "Gujarat", "addressCountry": "India" },
-        "sameAs": [
-          "https://github.com/het-7980",
-          "https://www.linkedin.com/in/het-chikhaliya"
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://hetchikhaliya.com/#person",
+            "name": "Het Chikhaliya",
+            "url": "https://hetchikhaliya.com/",
+            "image": "https://hetchikhaliya.com/og.png",
+            "jobTitle": "Mobile & Web Developer",
+            "email": "mailto:hetchikhaliya07@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Morbi",
+              "addressRegion": "Gujarat",
+              "addressCountry": "IN"
+            },
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Darshan University"
+            },
+            "knowsAbout": ["Flutter", "Dart", "Firebase", "Android", "HTML", "CSS", "JavaScript", "PHP", "MySQL", "C", "C++", "Java", "Python"],
+            "sameAs": [
+              "https://github.com/het-7980",
+              "https://www.linkedin.com/in/het-chikhaliya"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://hetchikhaliya.com/#website",
+            "url": "https://hetchikhaliya.com/",
+            "name": "Het Chikhaliya — Portfolio",
+            "inLanguage": "en",
+            "author": { "@id": "https://hetchikhaliya.com/#person" }
+          }
         ]
       }
     </script>
@@ -49,6 +100,18 @@
     <div id="nav-root"></div>
     <main id="main"></main>
     <div id="footer-root"></div>
+
+    <noscript>
+      <div style="max-width: 640px; margin: 4rem auto; padding: 0 1.5rem; font-family: system-ui, sans-serif; line-height: 1.6">
+        <h1 style="font-size: 1.75rem">Het Chikhaliya</h1>
+        <p>Mobile &amp; Web Developer — Morbi, Gujarat, India.</p>
+        <p>This portfolio needs JavaScript to render. In the meantime you can reach me at
+          <a href="mailto:hetchikhaliya07@gmail.com">hetchikhaliya07@gmail.com</a>, on
+          <a href="https://github.com/het-7980">GitHub</a> or
+          <a href="https://www.linkedin.com/in/het-chikhaliya">LinkedIn</a>.
+        </p>
+      </div>
+    </noscript>
 
     <script type="module" src="/src/main.ts"></script>
   </body>

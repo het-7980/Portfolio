@@ -29,13 +29,13 @@ export function renderAbout(): string {
         <div class="about__body">
           <div class="about__prose">${paragraphs}</div>
 
-          <aside class="about__aside" aria-label="At a glance">
-            <ul class="about__highlights">${highlights}</ul>
+          <div class="about__aside">
+            <ul class="about__highlights" aria-label="At a glance">${highlights}</ul>
             <a class="about__cta" href="mailto:${esc(profile.email)}">
               ${icon('mail')}
               <span>Get in touch</span>
             </a>
-          </aside>
+          </div>
         </div>
       </div>
     </section>

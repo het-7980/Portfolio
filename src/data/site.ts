@@ -11,6 +11,6 @@ export const navLinks = [
 
 export const site = {
   tagline: 'Building mobile and web applications.',
-  /** Set once the site is deployed so social/canonical tags resolve. */
-  url: '',
+  /** Also referenced by index.html, public/sitemap.xml and public/robots.txt. */
+  url: 'https://hetchikhaliya.com',
 };

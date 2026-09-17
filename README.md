@@ -21,7 +21,7 @@ What I enjoy most is taking an idea all the way through to something people can 
 | Mobile Development | Flutter / Dart, Android Development |
 | Web Development | HTML / CSS / JavaScript, Flutter Web |
 | Backend & Database | Firebase Authentication & Firestore, PHP + MySQL |
-| Programming Languages | C, Python |
+| Programming Languages | C, C++, Java, Python |
 | Tools | Git / GitHub |
 
 ## Projects
