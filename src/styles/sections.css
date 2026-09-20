@@ -441,8 +441,8 @@
   place-items: center;
   height: 100%;
   background:
-    radial-gradient(circle at 50% 60%, transparent 30%, var(--grid-line) 30.5%, transparent 31%),
-    radial-gradient(circle at 50% 60%, transparent 48%, var(--grid-line) 48.5%, transparent 49%),
+    radial-gradient(circle at 50% 60%, transparent 30%, var(--ring-line) 30.5%, transparent 31%),
+    radial-gradient(circle at 50% 60%, transparent 48%, var(--ring-line) 48.5%, transparent 49%),
     radial-gradient(120% 90% at 20% 0%, var(--accent-soft), transparent 60%),
     linear-gradient(160deg, var(--surface-2), var(--bg-soft));
   transition: transform var(--dur-slow) var(--ease-out);

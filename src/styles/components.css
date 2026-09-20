@@ -22,6 +22,7 @@
 
 /* ---------- Navigation ---------- */
 
+/* Always frosted — never fully transparent — so content scrolling beneath stays legible. */
 .nav {
   position: fixed;
   inset: 0 0 auto 0;
@@ -29,19 +30,20 @@
   height: var(--nav-h);
   display: flex;
   align-items: center;
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border-bottom: 1px solid var(--border);
   transition:
     background-color var(--dur-mid) var(--ease-out),
     border-color var(--dur-mid) var(--ease-out),
     box-shadow var(--dur-mid) var(--ease-out);
-  border-bottom: 1px solid transparent;
 }
 
 .nav.is-scrolled {
-  background: var(--nav-bg);
-  backdrop-filter: blur(14px) saturate(150%);
-  -webkit-backdrop-filter: blur(14px) saturate(150%);
-  border-bottom-color: var(--border);
-  box-shadow: var(--shadow-sm);
+  background: var(--nav-bg-solid);
+  border-bottom-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
 }
 
 .nav__inner {

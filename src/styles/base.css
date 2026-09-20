@@ -31,17 +31,30 @@ body {
 }
 
 /* Ambient background: faint grid + accent glow behind the page content. */
+/* Ambient backdrop: three soft colour fields that sit behind every section. */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(120% 80% at 50% 0%, #000 30%, transparent 78%);
+  background:
+    radial-gradient(1100px 700px at 8% -12%, var(--ambient-1), transparent 62%),
+    radial-gradient(900px 800px at 104% 18%, var(--ambient-2), transparent 62%),
+    radial-gradient(800px 600px at 50% 112%, var(--ambient-3), transparent 64%);
+}
+
+/* Fine film grain over the colour fields so large flat areas don't band. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
 }
 
 img,
@@ -255,6 +268,7 @@ ol {
   }
 
   body::before,
+  body::after,
   .nav,
   .nav__scrim,
   .skip-link,

@@ -94,8 +94,15 @@
   --shadow-lg: 0 30px 60px -22px rgba(0, 0, 0, 0.8);
 
   --glow: radial-gradient(60% 60% at 50% 0%, rgba(124, 129, 230, 0.16), transparent 70%);
-  --nav-bg: rgba(14, 14, 18, 0.74);
-  --grid-line: rgba(242, 239, 233, 0.035);
+  --nav-bg: rgba(14, 14, 18, 0.82);
+  --nav-bg-solid: rgba(14, 14, 18, 0.94);
+
+  /* Ambient backdrop: soft colour fields + film grain instead of a grid. */
+  --ambient-1: rgba(124, 129, 230, 0.16);
+  --ambient-2: rgba(185, 188, 243, 0.08);
+  --ambient-3: rgba(242, 239, 233, 0.045);
+  --grain-opacity: 0.07;
+  --ring-line: rgba(242, 239, 233, 0.05);
 }
 
 /* ---------- Light theme — warm cream, like the artwork ---------- */
@@ -127,6 +134,12 @@
   --shadow-lg: 0 28px 56px -24px rgba(17, 17, 20, 0.26);
 
   --glow: radial-gradient(60% 60% at 50% 0%, rgba(82, 87, 201, 0.1), transparent 70%);
-  --nav-bg: rgba(250, 247, 242, 0.8);
-  --grid-line: rgba(17, 17, 20, 0.045);
+  --nav-bg: rgba(250, 247, 242, 0.84);
+  --nav-bg-solid: rgba(250, 247, 242, 0.95);
+
+  --ambient-1: rgba(82, 87, 201, 0.11);
+  --ambient-2: rgba(126, 131, 227, 0.07);
+  --ambient-3: rgba(230, 196, 150, 0.14);
+  --grain-opacity: 0.05;
+  --ring-line: rgba(17, 17, 20, 0.06);
 }

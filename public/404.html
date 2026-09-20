@@ -32,7 +32,8 @@
         --border: rgba(242, 239, 233, 0.09);
         --accent: #7c81e6;
         --accent-2: #b9bcf3;
-        --grid: rgba(242, 239, 233, 0.035);
+        --ambient-1: rgba(124, 129, 230, 0.16);
+        --ambient-2: rgba(185, 188, 243, 0.08);
       }
 
       :root[data-theme='light'] {
@@ -45,7 +46,8 @@
         --border: rgba(17, 17, 20, 0.1);
         --accent: #5257c9;
         --accent-2: #7e83e3;
-        --grid: rgba(17, 17, 20, 0.045);
+        --ambient-1: rgba(82, 87, 201, 0.11);
+        --ambient-2: rgba(230, 196, 150, 0.14);
       }
 
       * {
@@ -64,9 +66,8 @@
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
         background-image:
-          linear-gradient(var(--grid) 1px, transparent 1px),
-          linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-        background-size: 72px 72px;
+          radial-gradient(1100px 700px at 8% -12%, var(--ambient-1), transparent 62%),
+          radial-gradient(800px 600px at 100% 110%, var(--ambient-2), transparent 64%);
       }
 
       main {
