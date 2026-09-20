@@ -80,8 +80,11 @@
         font-family: 'Bodoni Moda', Georgia, serif;
         font-size: clamp(5rem, 4rem + 8vw, 8rem);
         font-weight: 600;
+        /* At display size the hairlines vanish; a small optical size keeps the 4's diagonal visible. */
+        font-optical-sizing: none;
+        font-variation-settings: 'opsz' 9;
         line-height: 1;
-        letter-spacing: 0;
+        letter-spacing: 0.02em;
         background: linear-gradient(140deg, var(--accent), var(--accent-2));
         -webkit-background-clip: text;
         background-clip: text;
