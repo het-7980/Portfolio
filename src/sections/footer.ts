@@ -5,42 +5,28 @@ import { logoMark } from '../lib/logo';
 import { esc } from '../lib/dom';
 
 export function renderFooter(): string {
-  const socials = profile.socials
-    .map(
-      (social) => `
-        <li>
-          <a class="footer__social" href="${esc(social.href)}" target="_blank" rel="noopener noreferrer"
-             aria-label="${esc(social.label)} — opens in a new tab">
-            ${icon(social.icon)}
-          </a>
-        </li>`,
-    )
-    .join('');
-
   return `
     <footer class="footer">
       <div class="container footer__inner">
-        <div class="footer__brand">
+        <a class="footer__brand" href="#home" aria-label="${esc(profile.name)} — back to top">
           <span class="footer__mark" aria-hidden="true">${logoMark}</span>
-          <div>
-            <p class="footer__name">${esc(profile.name)}</p>
-            <p class="footer__tagline">${esc(site.tagline)}</p>
-          </div>
-        </div>
+          <span>
+            <span class="footer__name">${esc(profile.name)}</span>
+            <span class="footer__tagline">${esc(site.tagline)}</span>
+          </span>
+        </a>
 
-        <ul class="footer__socials">
-          ${socials}
-          <li>
-            <a class="footer__social" href="mailto:${esc(profile.email)}" aria-label="Email ${esc(profile.name)}">
-              ${icon('mail')}
-            </a>
-          </li>
-        </ul>
+        <a class="btn btn--ghost btn--sm footer__top" href="#home">
+          Back to top ${icon('arrow', 'footer__top-icon')}
+        </a>
       </div>
 
       <div class="container footer__bottom">
         <p>&copy; ${new Date().getFullYear()} ${esc(profile.name)}. All rights reserved.</p>
-        <a class="footer__top" href="#home">Back to top ${icon('arrow', 'footer__top-icon')}</a>
+        <a class="footer__source" href="${esc(site.repo)}" target="_blank" rel="noopener noreferrer">
+          ${icon('github')} <span>View source</span>
+          <span class="visually-hidden">— opens in a new tab</span>
+        </a>
       </div>
     </footer>
   `;
