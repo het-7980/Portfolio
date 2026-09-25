@@ -2,8 +2,9 @@ import './styles/tokens.css';
 import './styles/base.css';
 import './styles/components.css';
 import './styles/sections.css';
+import './styles/animations.css';
 
-import { renderNav } from './components/nav';
+import { renderMasthead } from './components/masthead';
 import { renderHero } from './sections/hero';
 import { renderAbout } from './sections/about';
 import { renderSkills } from './sections/skills';
@@ -15,11 +16,12 @@ import { renderFooter } from './sections/footer';
 import { initTheme } from './lib/theme';
 import { initNavigation } from './lib/navigation';
 import { initScrollReveal } from './lib/reveal';
+import { initMotion } from './lib/motion';
 import { esc, mount } from './lib/dom';
 import { profile } from './data/profile';
 
 function render(): void {
-  mount('#nav-root', renderNav());
+  mount('#masthead-root', renderMasthead());
   mount(
     '#main',
     [renderHero(), renderAbout(), renderSkills(), renderProjects(), renderEducation(), renderContact()].join(
@@ -39,21 +41,6 @@ function restoreHashTarget(): void {
 
   const target = document.getElementById(id);
   target?.scrollIntoView({ behavior: 'auto', block: 'start' });
-}
-
-/** Collapsed <details> stay hidden on paper unless opened, so expand them for the print run only. */
-function initPrintExpansion(): void {
-  let opened: HTMLDetailsElement[] = [];
-
-  window.addEventListener('beforeprint', () => {
-    opened = Array.from(document.querySelectorAll<HTMLDetailsElement>('details:not([open])'));
-    opened.forEach((el) => (el.open = true));
-  });
-
-  window.addEventListener('afterprint', () => {
-    opened.forEach((el) => (el.open = false));
-    opened = [];
-  });
 }
 
 /** Content is static, so a failure here is a bug — surface contact details rather than a blank page. */
@@ -77,7 +64,7 @@ try {
   render();
   initNavigation();
   initScrollReveal();
-  initPrintExpansion();
+  initMotion();
   restoreHashTarget();
 } catch (error) {
   renderFallback(error);

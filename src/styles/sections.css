@@ -27,16 +27,16 @@
 
 .hero__name {
   font-size: var(--text-4xl);
-  font-weight: 600;
-  font-optical-sizing: auto;
+  font-weight: 650;
 }
 
 .hero__title {
   margin-top: var(--space-3);
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  font-weight: 500;
+  font-weight: 600;
   font-style: italic;
+  font-variation-settings: 'opsz' var(--opsz-display);
   color: var(--text-muted);
 }
 
@@ -119,17 +119,6 @@
   background: linear-gradient(160deg, var(--surface), var(--bg-soft));
   box-shadow: var(--shadow-lg);
   overflow: hidden;
-  animation: float 9s var(--ease-in-out) infinite;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
 }
 
 .hero__panel-bar {
@@ -197,7 +186,7 @@
 }
 
 .hero__code-key {
-  color: var(--accent-2);
+  color: var(--accent-text);
 }
 
 .hero__code-key::after {
@@ -455,7 +444,8 @@
 .project-card__monogram {
   font-family: var(--font-display);
   font-size: 3.5rem;
-  font-weight: 600;
+  font-weight: 650;
+  font-variation-settings: 'opsz' var(--opsz-display);
   letter-spacing: -0.04em;
   background: linear-gradient(140deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
@@ -501,89 +491,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-}
-
-/* Native <details> keeps the card short until the visitor asks for more. */
-.project-card__details {
-  border-top: 1px solid var(--border);
-  margin-top: var(--space-1);
-}
-
-.project-card__summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--space-3) 0;
-  list-style: none;
-  cursor: pointer;
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--text-muted);
-  transition: color var(--dur-fast) var(--ease-out);
-}
-
-.project-card__summary::-webkit-details-marker {
-  display: none;
-}
-
-.project-card__summary:hover {
-  color: var(--text);
-}
-
-.project-card__chevron {
-  color: var(--text-faint);
-  transition: transform var(--dur-mid) var(--ease-out);
-}
-
-.project-card__details[open] .project-card__chevron {
-  transform: rotate(180deg);
-}
-
-.project-card__details-body {
-  display: grid;
-  gap: var(--space-2);
-  padding-bottom: var(--space-3);
-}
-
-.project-card__label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  color: var(--text-faint);
-  margin-top: var(--space-2);
-}
-
-.project-card__label:first-child {
-  margin-top: 0;
-}
-
-.project-card__text {
-  font-size: var(--text-sm);
-  color: var(--text-muted);
-}
-
-.project-card__features {
-  display: grid;
-  gap: var(--space-2);
-}
-
-.project-card__features li {
-  position: relative;
-  padding-left: var(--space-4);
-  font-size: var(--text-sm);
-  color: var(--text-muted);
-}
-
-.project-card__features li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.62em;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent-2);
 }
 
 .project-card__actions {

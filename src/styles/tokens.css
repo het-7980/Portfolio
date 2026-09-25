@@ -28,6 +28,13 @@
   --tracking-tight: 0.005em;
   --tracking-wide: 0.08em;
 
+  /* Bodoni is a Didone: stroke contrast grows with the optical size, so at
+     display sizes the hairlines thin to nothing on screen. Optical sizing is
+     pinned rather than left on `auto` — the larger the type, the lower the
+     value, so the thin strokes keep their weight. */
+  --opsz-text: 16;
+  --opsz-display: 10;
+
   /* Spacing — 4px base scale */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -58,7 +65,25 @@
   --dur-mid: 280ms;
   --dur-slow: 620ms;
 
-  --nav-h: 68px;
+  /* ---------- Page furniture (structure only; palette is untouched) ---------- */
+
+  /* Height of the fixed running head. */
+  --head-h: 52px;
+  /* Kept as an alias so scroll-padding and older offsets stay correct. */
+  --nav-h: var(--head-h);
+  /* Fixed index rail down the left edge, desktop only. */
+  --rail-w: 84px;
+
+  /* The page is a 12-column magazine grid with a reserved outer margin. */
+  --page-max: 1340px;
+  --col-gap: clamp(1.25rem, 0.9rem + 1.6vw, 2.75rem);
+  --rule: 1px;
+
+  /* Comfortable measure for body copy set in a single column. */
+  --measure: 34rem;
+
+  /* Small-caps labels are tracked much wider than the running text. */
+  --tracking-caps: 0.18em;
 
   /* Brand periwinkle — the arc in the monogram. Fixed across themes. */
   --brand: #6f74dc;
@@ -86,6 +111,10 @@
   --accent-hover: #979bee;
   --accent-contrast: #0b0b10;
   --accent-2: #b9bcf3;
+  /* `--accent-2` is a gradient companion, not a text colour: on a light
+     surface it only reaches ~3.1:1. This is the accent that stays legible as
+     small text in each theme. */
+  --accent-text: #b9bcf3;
   --accent-soft: rgba(124, 129, 230, 0.15);
   --accent-ring: rgba(124, 129, 230, 0.42);
 
@@ -126,6 +155,7 @@
   --accent-hover: #4348b3;
   --accent-contrast: #ffffff;
   --accent-2: #7e83e3;
+  --accent-text: #5257c9;
   --accent-soft: rgba(82, 87, 201, 0.1);
   --accent-ring: rgba(82, 87, 201, 0.35);
 

@@ -1,13 +1,4 @@
-/** Site-wide configuration: navigation, SEO copy and footer tagline. */
-
-export const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Education', href: '#education' },
-  { label: 'Contact', href: '#contact' },
-] as const;
+/** Site-wide configuration. The contents listing lives in `data/sections.ts`. */
 
 export const site = {
   tagline: 'Building mobile and web applications.',

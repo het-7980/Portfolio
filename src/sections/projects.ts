@@ -1,6 +1,6 @@
 import { projects } from '../data/projects';
 import { icon } from '../lib/icons';
-import { esc, join } from '../lib/dom';
+import { esc, join, words } from '../lib/dom';
 import type { Project } from '../data/types';
 
 function initials(name: string): string {
@@ -22,6 +22,7 @@ function cover(project: Project): string {
 
   return `
     <div class="project-card__cover" aria-hidden="true">
+      <span class="project-card__rings"></span>
       <span class="project-card__monogram">${esc(initials(project.name))}</span>
     </div>`;
 }
@@ -29,54 +30,35 @@ function cover(project: Project): string {
 function links(project: Project): string {
   return join([
     project.repo &&
-      `<a class="btn btn--primary btn--sm" href="${esc(project.repo)}" target="_blank" rel="noopener noreferrer">
+      `<a class="btn btn--primary btn--sm" data-magnetic href="${esc(project.repo)}" target="_blank" rel="noopener noreferrer">
         ${icon('github', 'btn__icon')} <span>GitHub</span>
         <span class="visually-hidden">— opens in a new tab</span>
       </a>`,
     project.demo &&
-      `<a class="btn btn--ghost btn--sm" href="${esc(project.demo)}" target="_blank" rel="noopener noreferrer">
+      `<a class="btn btn--ghost btn--sm" data-magnetic href="${esc(project.demo)}" target="_blank" rel="noopener noreferrer">
         ${icon('external', 'btn__icon')} <span>Live Demo</span>
         <span class="visually-hidden">— opens in a new tab</span>
       </a>`,
   ]);
 }
 
-function details(project: Project): string {
-  const hasDetails = project.problem || project.features.length > 0 || project.role;
-  if (!hasDetails) return '';
-
-  return `
-    <details class="project-card__details">
-      <summary class="project-card__summary">
-        <span>Details</span>
-        ${icon('chevron', 'project-card__chevron')}
-      </summary>
-      <div class="project-card__details-body">
-        ${join([
-          project.problem &&
-            `<p class="project-card__label">Problem it solves</p>
-             <p class="project-card__text">${esc(project.problem)}</p>`,
-          project.features.length > 0 &&
-            `<p class="project-card__label">Key features</p>
-             <ul class="project-card__features">
-               ${project.features.map((f) => `<li>${esc(f)}</li>`).join('')}
-             </ul>`,
-          project.role &&
-            `<p class="project-card__label">My role</p>
-             <p class="project-card__text">${esc(project.role)}</p>`,
-        ])}
-      </div>
-    </details>`;
-}
-
 function card(project: Project, index: number): string {
   const id = `project-${index}-title`;
+  // Featured work earns a wide, two-column card; the rest sit in the grid.
+  const modifier = project.featured ? ' project-card--featured' : '';
 
   return `
-    <article class="project-card" data-reveal data-reveal-index="${index}" aria-labelledby="${id}">
+    <article
+      class="project-card${modifier}"
+      data-reveal="blur"
+      data-reveal-index="${index}"
+      data-spotlight
+      aria-labelledby="${id}"
+    >
       <div class="project-card__media">
         ${cover(project)}
         <span class="project-card__category">${esc(project.category)}</span>
+        ${project.featured ? '<span class="project-card__badge">Featured</span>' : ''}
       </div>
 
       <div class="project-card__body">
@@ -84,10 +66,10 @@ function card(project: Project, index: number): string {
         <p class="project-card__desc">${esc(project.tagline)}</p>
 
         <ul class="project-card__tech" aria-label="Technologies">
-          ${project.tech.map((tech) => `<li class="chip chip--accent">${esc(tech)}</li>`).join('')}
+          ${project.tech
+            .map((tech, i) => `<li class="chip chip--accent" style="--i:${i}">${esc(tech)}</li>`)
+            .join('')}
         </ul>
-
-        ${details(project)}
 
         <div class="project-card__actions">${links(project)}</div>
       </div>
@@ -100,10 +82,8 @@ export function renderProjects(): string {
       <div class="container">
         <header class="section__head" data-reveal>
           <p class="eyebrow">Projects</p>
-          <h2 class="section__title" id="projects-title">Things I have built</h2>
-          <p class="section__lead">
-            Work I have shipped end to end — open a card for the problem, features and my role.
-          </p>
+          <h2 class="section__title" id="projects-title">${words('Things I have built')}</h2>
+          <p class="section__lead">Work I have shipped end to end.</p>
         </header>
 
         <div class="project-grid">${projects.map(card).join('')}</div>

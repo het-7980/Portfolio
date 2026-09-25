@@ -39,3 +39,35 @@ export function slugify(value: string): string {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
+
+/**
+ * Splits a heading into per-word spans so each word can rise out of its own
+ * mask. The outer span is the mask; the inner one carries the transform.
+ */
+export function words(value: string): string {
+  return value
+    .split(/\s+/)
+    .map(
+      (word, i) => `<span class="word"><span class="word__inner" style="--i:${i}">${esc(word)}</span></span>`,
+    )
+    .join(' ');
+}
+
+/**
+ * Splits a short string into per-character spans for the hero's staggered
+ * entrance. Spaces become their own non-animated span so words stay apart.
+ */
+export function chars(value: string): string {
+  let index = 0;
+  return value
+    .split(' ')
+    .map((word) => {
+      // Each word is its own no-wrap box, or the line could break between
+      // two letters of the same word.
+      const letters = [...word]
+        .map((char) => `<span class="char" style="--i:${index++}">${esc(char)}</span>`)
+        .join('');
+      return `<span class="char-word">${letters}</span>`;
+    })
+    .join('<span class="char-space"> </span>');
+}

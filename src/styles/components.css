@@ -5,8 +5,7 @@
 .icon,
 .btn__icon,
 .contact-card__arrow,
-.footer__top-icon,
-.project-card__chevron {
+.footer__top-icon {
   display: inline-flex;
   flex: none;
 }
@@ -14,8 +13,7 @@
 .icon svg,
 .btn__icon svg,
 .contact-card__arrow svg,
-.footer__top-icon svg,
-.project-card__chevron svg {
+.footer__top-icon svg {
   width: 1.15em;
   height: 1.15em;
 }

@@ -25,6 +25,9 @@ body {
   line-height: var(--leading-normal);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Inherited by everything; fonts without an `opsz` axis ignore it. */
+  font-optical-sizing: none;
+  font-variation-settings: 'opsz' var(--opsz-text);
   transition:
     background-color var(--dur-mid) var(--ease-out),
     color var(--dur-mid) var(--ease-out);
@@ -78,6 +81,7 @@ h3,
 h4 {
   font-family: var(--font-display);
   font-weight: 600;
+  font-variation-settings: 'opsz' var(--opsz-display);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   text-wrap: balance;
@@ -265,6 +269,7 @@ ol {
     --border-strong: #999;
     --accent: #1d3fb8;
     --accent-2: #0b7a70;
+    --accent-text: #1d3fb8;
   }
 
   body::before,
@@ -274,8 +279,7 @@ ol {
   .skip-link,
   .hero__visual,
   .hero__actions,
-  .footer__top,
-  .project-card__chevron {
+  .footer__top {
     display: none !important;
   }
 
@@ -301,15 +305,6 @@ ol {
 
   .section--alt {
     border: 0;
-  }
-
-  /* Details are opened by a beforeprint handler; hide the toggle itself. */
-  .project-card__details {
-    border-top: 0;
-  }
-
-  .project-card__summary {
-    display: none;
   }
 
   .project-card,

@@ -1,6 +1,6 @@
 import { profile } from '../data/profile';
 import { icon } from '../lib/icons';
-import { esc, join } from '../lib/dom';
+import { esc, join, words } from '../lib/dom';
 
 function contactMethods(): string {
   const methods = [
@@ -17,9 +17,10 @@ function contactMethods(): string {
     .map((method, index) => {
       const external = !method.href.startsWith('mailto:');
       return `
-        <li data-reveal data-reveal-index="${index}">
+        <li data-reveal="scale" data-reveal-index="${index}">
           <a
-            class="contact-card"
+            class="contact-card sheen"
+            data-spotlight
             href="${esc(method.href)}"
             ${external ? 'target="_blank" rel="noopener noreferrer"' : ''}
           >
@@ -41,7 +42,7 @@ export function renderContact(): string {
       <div class="container">
         <header class="section__head" data-reveal>
           <p class="eyebrow">Contact</p>
-          <h2 class="section__title" id="contact-title">Let’s work together</h2>
+          <h2 class="section__title" id="contact-title">${words('Let’s work together')}</h2>
           <p class="section__lead">
             Have a project in mind, a question, or just want to talk about Flutter?
             Email is the fastest way to reach me.

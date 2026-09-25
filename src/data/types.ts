@@ -22,6 +22,8 @@ export interface Profile {
 export interface AboutContent {
   paragraphs: string[];
   highlights: Array<{ label: string; value: string }>;
+  /** Set large beside the letter. Must be a sentence that already appears in `paragraphs`. */
+  pullQuote?: string;
 }
 
 export interface SkillGroup {

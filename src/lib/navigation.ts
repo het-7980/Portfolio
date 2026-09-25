@@ -36,11 +36,12 @@ export function initNavigation(): void {
   const onScroll = (): void => {
     nav.classList.toggle('is-scrolled', window.scrollY > 12);
 
-    if (progress) {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const ratio = max > 0 ? window.scrollY / max : 0;
-      progress.style.transform = `scaleX(${Math.min(ratio, 1)})`;
-    }
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = Math.min(max > 0 ? window.scrollY / max : 0, 1);
+
+    if (progress) progress.style.transform = `scaleX(${ratio})`;
+    // Shared with the floating back-to-top dial, which draws the same value.
+    document.documentElement.style.setProperty('--scroll-progress', String(ratio));
   };
 
   onScroll();

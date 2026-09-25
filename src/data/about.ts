@@ -7,6 +7,7 @@ export const about: AboutContent = {
     'What I enjoy most is taking an idea all the way through to something people can actually use — like ResUniq, a resume builder my team of five built with secure sign-in, AI-assisted content, multiple templates and PDF export.',
     'Right now I’m focused on deepening my Flutter work and learning new technologies through projects I can ship.',
   ],
+  pullQuote: 'What I enjoy most is taking an idea all the way through to something people can actually use.',
   highlights: [
     { label: 'Focus', value: 'Mobile & web application development' },
     { label: 'Studying', value: 'Diploma in Computer Engineering, Darshan University' },

@@ -1,11 +1,18 @@
-import { navLinks } from '../data/site';
+import { sections } from '../data/sections';
 import { profile } from '../data/profile';
 import { icon } from '../lib/icons';
 import { logoMark } from '../lib/logo';
 import { esc } from '../lib/dom';
 
-export function renderNav(): string {
-  const links = navLinks
+/**
+ * The fixed page header: brand, section links, theme toggle and — below the
+ * mobile breakpoint — the slide-in menu.
+ *
+ * The `.nav*` classes and `data-nav*` hooks are what `styles/components.css`
+ * and `lib/navigation.ts` bind to, so they stay as they are.
+ */
+export function renderMasthead(): string {
+  const links = sections
     .map((link) => `<li><a class="nav__link" href="${link.href}" data-nav-link>${esc(link.label)}</a></li>`)
     .join('');
 
