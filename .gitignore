@@ -2,6 +2,7 @@ node_modules
 dist
 .playwright-mcp
 .codex
+.claude
 .vite
 *.local
 .DS_Store
